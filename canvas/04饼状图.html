@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>画布</title>
+</head>
+
+<body>
+  <div class="container">
+    <canvas id="app"></canvas>
+  </div>
+
+  <script>
+    (function () {
+      var canvas = document.getElementById('app')
+      var ctx = canvas.getContext('2d')
+
+      canvas.style.border = '1px solid #000';
+      canvas.width = '600'
+      canvas.height = '600'
+
+      // 数据
+      var data = [
+        { "value": .3, 'title': '三星', 'color': '#fed330' },
+        { "value": .2, 'title': '小米', 'color': '#26de81' },
+        { "value": .1, 'title': '华为', 'color': '#fc5c65' },
+        { "value": .4, 'title': '苹果', 'color': '#0fb9b1' }
+      ]
+
+      var begin = -90 // 从哪个角度开始绘图，第一次是在-90
+      for (var i = 0; i < data.length; i++) {
+        ctx.beginPath()
+        ctx.moveTo(200, 200)
+        ctx.arc(200, 200, 100, begin * Math.PI / 180, (begin + data[i].value * 360) * Math.PI / 180)
+        ctx.fillStyle = data[i].color
+
+        // 绘制文字
+        var text = data[i].value * 100 + '%'
+        var x, y
+        var textAngle = begin + 1 / 2 * data[i].value * 360
+        x = 200 + Math.cos(textAngle * Math.PI / 180) * (100 + 10)
+        y = 200 + Math.sin(textAngle * Math.PI / 180) * (100 + 10)
+
+        if (textAngle > 90 && textAngle < 270) {
+          ctx.textAlign = 'end'
+        }
+
+        ctx.fillText(text, x, y)
+        ctx.fill()
+        begin += data[i].value * 360
+      }
+
+      //  {   // 第一个
+      //     ctx.beginPath()
+      //     ctx.moveTo(200, 200)
+      //     // ctx.lineTo(50,50)
+      //     ctx.arc(200, 200, 100, -90 * Math.PI / 180, -30 * Math.PI / 180)
+      //     ctx.fillStyle = '#fed330'
+      //     ctx.fill()
+      //     ctx.closePath()
+      //     // ctx.strokeStyle = '#fff'
+
+      //     // 第二个
+      //     ctx.beginPath()
+      //     ctx.moveTo(200, 200)
+      //     // ctx.lineTo(50,50)
+      //     ctx.arc(200, 200, 100, -30 * Math.PI / 180, 60 * Math.PI / 180)
+      //     ctx.fillStyle = '#26de81'
+      //     ctx.fill()
+      //     // ctx.closePath()
+      //     // ctx.strokeStyle = '#fff'
+
+      //     // 第三个
+      //     ctx.beginPath()
+      //     ctx.moveTo(200, 200)
+      //     // ctx.lineTo(50,50)
+      //     ctx.arc(200, 200, 100, 60 * Math.PI / 180, 137 * Math.PI / 180)
+      //     ctx.fillStyle = '#fc5c65'
+      //     ctx.fill()
+
+      //     ctx.beginPath()
+      //     ctx.moveTo(200, 200)
+      //     // ctx.lineTo(50,50)
+      //     ctx.arc(200, 200, 100, 137 * Math.PI / 180, 270 * Math.PI / 180)
+      //     ctx.fillStyle = '#0fb9b1'
+      //     ctx.fill()}
+
+
+    }())
+  </script>
+</body>
+
+</html>

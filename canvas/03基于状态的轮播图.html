@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>画布</title>
+</head>
+
+<body>
+  <div class="container">
+    <canvas id="app"></canvas>
+  </div>
+
+  <script>
+    (function () {
+      var canvas = document.getElementById('app')
+      var ctx = canvas.getContext('2d')
+
+      canvas.style.border = '1px solid #000';
+      canvas.width = '600'
+      canvas.height = '600'
+
+      ctx.lineWidth = 20
+      // 第一条线
+      ctx.moveTo(100,100)
+      ctx.lineTo(300,100)
+      ctx.strokeStyle = 'red'
+      ctx.stroke()
+      
+      // 第二条线
+      ctx.beginPath() //开启新状态
+      ctx.moveTo(100,300)
+      ctx.lineTo(300,300)
+      ctx.strokeStyle = 'blue'
+      ctx.stroke()
+    }())
+  </script>
+</body>
+
+</html>

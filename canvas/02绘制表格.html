@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>表格</title>
+</head>
+
+<body>
+  <div class="container">
+    <canvas id="app"></canvas>
+  </div>
+
+  <script>
+    (function () {
+      var canvas = document.getElementById('app')
+      var ctx = canvas.getContext('2d')
+
+      canvas.style.border = '1px solid #000';
+      canvas.width = '600'
+      canvas.height = '600'
+
+      ctx.lineWidth = .5
+
+      var rectH = 10
+      // 绘制表格
+      // 1.绘制横线
+      for (var i = 0; i < canvas.width / rectH; i++) {
+        ctx.moveTo(0, i * rectH)
+        ctx.lineTo(canvas.width, i * rectH)
+      }
+      // 2.绘制竖线
+      for (var i = 0; i < canvas.width / rectH; i++) {
+        ctx.moveTo(i * rectH, 0)
+        ctx.lineTo(i * rectH, canvas.width)
+      }
+
+      ctx.moveTo(100,400)
+      ctx.lineTo(100,200)
+      ctx.lineTo(90,210)
+
+      ctx.moveTo(100,200)
+      ctx.lineTo(110,210)
+
+      ctx.moveTo(100,400)
+      ctx.lineTo(300,400)
+      ctx.lineTo(290,390)
+
+      ctx.moveTo(300,400)
+      ctx.lineTo(290,410)
+      
+      // 折线
+      ctx.moveTo(100,400)
+      ctx.lineTo(120,250)
+      ctx.lineTo(150,300)
+      ctx.lineTo(180,270)
+      ctx.lineTo(220,250)
+
+
+      // ctx.beginPath()
+      // ctx.moveTo(0,0)
+      // ctx.lineTo(50,50)
+
+      // ctx.closePath()
+      // ctx.strokeStyle = 'red'
+      ctx.stroke()
+    }())
+  </script>
+</body>
+
+</html>

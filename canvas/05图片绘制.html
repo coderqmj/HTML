@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>画布</title>
+</head>
+
+<body>
+  <div class="container">
+    <canvas id="app"></canvas>
+  </div>
+  <button id="speedUp">加速</button>
+  <script>
+    (function () {
+      var canvas = document.getElementById('app')
+      var ctx = canvas.getContext('2d')
+
+      canvas.style.border = '1px solid #000';
+      canvas.width = '900'
+      canvas.height = '900'
+
+      // var img = new Image()
+      // img.src = '../img/dog.jpg'
+
+      // img.onload = function () {
+      //   // 图片完成加载后，把图片绘制到canvas
+      //   console.log('aaaaa')
+      //   // ctx.drawImage(img, 100, 100)
+      //   for(var i = 1; i<6;i++){
+      //     ctx.drawImage(img, 100+15*i, 100+15*i)
+      //   }
+      // }
+      var img = new Image()
+      img.src = '../img/frame1.jpg'
+
+
+      img.onload = function () {
+        // 图片完成加载后，把图片绘制到canvas
+        console.log('aaaaa')
+        // ctx.drawImage(img, 100, 100)
+        // ctx.drawImage(img,100,334/3,100,334/3,300,300,100,334/3)
+        var frameIndexX = 0
+        var frameIndexY = 0
+        var speed = 10
+        fps = 1000/speed
+        var speedUp = document.getElementById('speedUp')
+        speedUp.onclick = function () {
+            speed += 5
+            fps = 1000/speed
+            console.log(fps)
+          }
+
+        setInterval(() => {
+          ctx.clearRect(0, 0, canvas.width, canvas.height)
+          ctx.drawImage(img, frameIndexX * (996 / 8), 0, 996 / 8, 220, 300, 300, 996 / 8, 220)
+          frameIndexX++
+          frameIndexX %= 8
+          // speed += 5
+        }, fps);
+      }
+
+    }())
+
+
+  </script>
+</body>
+
+</html>

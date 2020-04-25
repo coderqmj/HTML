@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>画布</title>
+</head>
+<body>
+  <canvas id="test"></canvas>
+</body>
+<script>
+  var canvas = document.getElementById('test')
+  var ctx = canvas.getContext('2d')
+  canvas.style.border = '1px solid red';
+  canvas.width = '600'
+  canvas.height = '600'
+  ctx.moveTo(100,100)
+  ctx.lineTo(200,100)
+  ctx.lineTo(100,200)
+  // ctx.lineTo(100,100)
+  ctx.closePath()
+  // 设置线宽
+  ctx.lineWidth = 4
+  // strokeStyle 可以设置样式 需要在Stroke() 前设置
+  ctx.strokeStyle = 'red'  // 可以加上颜色， rgb() ,rgba() color
+  ctx.stroke()
+
+  // 将三角形填充
+  ctx.fill()
+</script>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>画布</title>
+  <script src="./Sprite.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <canvas id="app"></canvas>
+    <button id="speedUp">加速</button>
+    <button id="speedDown">减速</button>
+  </div>
+
+  <script>
+    (function () {
+      var canvas = document.getElementById('app')
+      var ctx = canvas.getContext('2d')
+
+      canvas.style.border = '1px solid #000';
+      canvas.width = '600'
+      canvas.height = '600'
+
+      ctx.lineWidth = .5
+
+      // 封装一个对象
+      // 属性 width height imgSrc speed dir
+      // 行为 render changeDir
+
+      var s = new Sprite({
+        x: 300,
+        y: 300,
+        w: 996 / 8,
+        h: 220,
+        fps: 10,
+        originW: 996 / 8,
+        originW: 220,
+        imgSrc: '../img/frame1.jpg'
+      })
+      var btnSu = document.getElementById('speedUp')
+      var btnSd = document.getElementById('speedDown')
+      btnSu.onclick = function() {
+        s.speedUp()
+        s.render(ctx)
+      }
+      btnSd.onclick = function() {
+        s.speedDown()
+        s.render(ctx)
+      }
+
+      s.render(ctx)
+     
+
+      ctx.stroke()
+    }())
+  </script>
+</body>
+
+</html>

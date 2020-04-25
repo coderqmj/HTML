@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>画布</title>
+</head>
+
+<body>
+  <div class="container">
+    <canvas id="app"></canvas>
+  </div>
+
+  <script>
+    (function () {
+      var canvas = document.getElementById('app')
+      var ctx = canvas.getContext('2d')
+
+      canvas.style.border = '1px solid #000';
+      canvas.width = '600'
+      canvas.height = '600'
+
+      ctx.lineWidth = .5
+      // ctx.beginPath()
+      // ctx.moveTo(0,0)
+      // ctx.lineTo(50,50)
+
+      // ctx.closePath()
+      // ctx.strokeStyle = 'red'
+      ctx.stroke()
+    }())
+  </script>
+</body>
+
+</html>
