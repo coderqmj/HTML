@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    i {
+      /* fixed使其脱离标准流，不占原有空间，下面的链接就会与i重合 */
+      position: fixed;
+      /* 意味着该元素可以在视口自由翱翔 */
+      /* 距离右边20px，距离底部20px */
+      /* 滚动时，其在视口的位置也不会变，多应用与广告 */
+      bottom: 20px;
+      right: 20px; 
+      /* left等这些属性对static没有用，必须脱离标准流后才可以使用 */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <i>你好</i>
+    <a href="">链接</a>
+  </div>
+</body>
+</html>
