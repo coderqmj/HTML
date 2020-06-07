@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../reset/reset.css">
+</head>
+<style>
+  /* 绝对定位absolute是依据最近的非静态定位的祖先元素定位的，若到body都无，则根据视口定位，变为fixed */
+  .phone {
+    margin-left: 200px;
+    position: relative;
+  }
+  .phone .code {
+    display: none;
+
+    position: absolute;
+    top: 20px;
+    left: 0;
+    transform: translate(-50%);
+    margin-left: 50%;
+  }
+  .phone .code span {
+    display: block;
+    text-align: center;
+  }
+  .phone .code .arrow {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    height: 10px;
+    width: 10px;
+    border-top: 1px solid #eaeaea;
+    border-left: 1px solid #eaeaea;
+    transform: rotate(45deg);
+  }
+  .phone span:hover+.code {
+    display: inline;
+  }
+  .phone span:hover {
+    color: red;
+  }
+</style>
+<body>
+  <a href="#" class="phone">
+    <span>手机考拉</span>
+    <span class="code">
+      <span class="arrow"></span>
+      <img src="https://kaola-haitao.oss.kaolacdn.com/314dd8b1-a77c-4897-bb9e-5237b9200b65T2001192035_180_180.png" alt="">
+      <span>下载APP</span>
+      <span>领100元新人红包</span>
+    </span>
+  </a>
+</body>
+</html>
