@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    /* 方案一、flex */
+    /* .container{
+      display: flex;
+    }
+    .left {
+      height: 44px;
+      width: 150px;
+      background-color: red;
+    }
+    .right {
+      flex: 1;
+      background-color: royalblue;
+    } */
+
+    /* 方案二、绝对定位 */
+     .container{
+      position: relative;
+    }
+    .left {
+      height: 44px;
+      position: absolute;
+      width: 300px;
+      background-color: red;
+    }
+    .right {
+      height: 44px;
+      background-color: royalblue;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="left"></div>
+    <div class="right"></div>
+  </div>
+</body>
+</html>

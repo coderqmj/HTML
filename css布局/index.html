@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+ 
+  <script>
+    var father1 = {
+      name: 'father1'
+    }
+    var father2 = {
+      name: 'father2'
+    }
+    var Son = function() {};
+    Son.prototype = father1;
+    var son1 = new Son();
+    alert(son1.name)
+    Son.prototype = father2
+    alert(son1.name)
+    var son2 = new Son()
+    alert(son2.name)
+    son2.name = 'jack'
+    alert(father2.name)
+  </script>
+</body>
+</html>

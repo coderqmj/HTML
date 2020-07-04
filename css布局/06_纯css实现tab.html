@@ -1,0 +1,139 @@
+<html>
+    <head>
+      <title>app下载</title>
+      <meta charset="UTF-8">
+      <meta content=yes name=apple-mobile-web-app-capable />
+      <meta content=yes name=apple-touch-fullscreen />
+      <meta content="telephone=no,email=no" name=format-detection />
+      <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+    	<style media="screen">
+    		.download {
+    			font-size:0;
+    			padding: 0 20px;
+    		}
+    
+    		header {
+    			font-size: 18px;
+    			padding: 20px 0;
+    			border-bottom: 2px solid #e37430;
+    			margin-bottom: 5px;
+    		}
+    
+    		label {
+    			display: inline-block;
+    			text-align: center;
+    			width: 80px;
+    			height: 40px;
+    			line-height: 40px;
+    			background-color: #dcdcdc;
+    			color: #000;
+    			font-size: 16px;
+    			margin-bottom: 1px;
+    		}
+    
+    		input[type="radio"] {
+    			display: none;
+    		}
+    
+    		input[type="radio"]:checked + label {
+    			background-color: #e37430;
+    			color: #fff;
+    		}
+    
+    		input[type="radio"][data-type="mmcm"]:checked ~ .mmcm {
+    			display: table;
+    		}
+    
+    		input[type="radio"][data-type="cmt"]:checked ~ .cmt {
+    			display: table;
+    		}
+    
+    		table {
+    			width: 100%;
+    			border-bottom: 5px solid #e37430;
+    			display: none;
+    			font-size: 14px;
+    		}
+    
+    		table th {
+    			background-color: #e37430;
+    			color: #fff;
+    			height: 33px;
+    			line-height: 33px;
+    			text-align: center;
+    		}
+    
+    		table tr {
+    			text-align: center;
+    		}
+    
+    		table tr td {
+    			padding: 20px 0;
+    		}
+    
+    		.btn {
+    			height: 20px;
+    			line-height: 20px;
+    			display: block;
+    			width: 80px;
+    			margin: 0 auto;
+    			background-color: #b1b2b3;
+    			border-radius: 4px;
+    			color: #000;
+    		}
+    
+    		.version {
+    			color: green;
+    		}
+    
+    		.signature {
+    			color: red;
+    		}
+    	</style>
+    </head>
+    <body>
+    	<div class="download">
+    		<header>安装包平台</header>
+    		<input id="project-mmcm" name="project" type="radio" checked="checked" data-type="mmcm">
+    		<label for="project-mmcm">安卓</label>
+    		<input id="project-cmt" name="project" type="radio" data-type="cmt">
+    		<label for="project-cmt">iOS</label>
+    		<table class="mmcm">
+    			<thead>
+    				<tr>
+    					<th>签名</th>
+    					<th>安装地址</th>
+    					<th>版本号</th>
+    					<th>发售日期</th>
+    				</tr>
+    			</thead>
+    			<tbody>
+    				<tr>
+    					<td class="signature">test1</td>
+    					<td><a class="btn" href="http://www.baidu.com">下载安装</a></td>
+    					<td class="version">v1.0</td>
+    					<td>2018-11-15</td>
+    				</tr>
+    			</tbody>
+    		</table>
+    		<table class="cmt">
+    			<thead>
+    				<tr>
+    					<th>签名</th>
+    					<th>安装地址</th>
+    					<th>版本号</th>
+    					<th>发售日期</th>
+    				</tr>
+    			</thead>
+    			<tbody>
+    				<tr>
+    					<td class="signature">test2</td>
+    					<td><a class="btn" href="http://www.baidu.com">下载安装</a></td>
+    					<td class="version">v1.0</td>
+    					<td>2018-11-15</td>
+    				</tr>
+    			</tbody>
+    		</table>
+    	</div>
+    </body>
+</html>
