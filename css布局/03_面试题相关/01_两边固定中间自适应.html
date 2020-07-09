@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>两边固定中间自适应</title>
+
+  <style>
+    /* 方案一：float */
+.item {
+  height: 44px;
+}
+.left {
+  float: left;
+  width: 300px;
+  background-color: red;
+}
+.center{
+  background-color: yellow;
+}
+.right {
+  float: right;
+  width: 300px;
+  background-color: blue;
+}
+
+    /* 方案二：flex */
+.box {
+  display: flex;
+}
+.item {
+  height: 44px;
+}
+.left {
+  width: 300px;
+  background-color: red;
+}
+.center {
+  flex: 1;
+  background-color: yellow;
+}
+.right {
+  width: 300px;
+  background-color: blue;
+}
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="item left"></div>
+    <div class="item center"></div>
+    <div class="item right"></div>
+  </div>
+</body>
+</html>
