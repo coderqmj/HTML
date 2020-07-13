@@ -7,15 +7,17 @@
   <title>Document</title>
 
   <style>
-    .box span {
+    .box .left {
       display: inline-block;
       width: 100px;
       text-align: right;
     }
+
     .box .item {
       margin-bottom: 20px;
-      
+
     }
+
     .box input {
       border: 1px solid #dcdfe6;
       border-radius: 4px;
@@ -24,6 +26,7 @@
       /* color:  red; */
       /* text-align: center; */
     }
+
     .box .btn {
       display: inline-block;
       width: 145px;
@@ -39,8 +42,12 @@
       padding: 12px 20px;
       border: 1px solid #dcdfe6;
     }
-    .need::before{
+
+    .need::before {
       content: "*";
+      color: red;
+    }
+    .right {
       color: red;
     }
   </style>
@@ -49,38 +56,108 @@
 <body>
 
   <h2>修改用户信息</h2>
-  <div class="box">
-    <div class="item">
-      <span class="need">用户名：</span><input onblur="userNameValid(this.vaule)"  placeholder="请输入用户名" type="text">
+  <form action="" method="POST">
+    <div class="box">
+      <div class="item">
+        <span class="left need">用户名：</span>
+        <input onblur="userNameValid()" onfocus="focus()" id="username" placeholder="请输入用户名" type="text">
+        <span id="usernameError" class="right"></span>
+      </div>
+      <div class="item">
+        <span class="left need">
+          密码：</span><input id="password" onblur="passwordValid()" onfocus="pdFocus()" placeholder="请输入用密码" type="password">
+        <span id="passwordError" class="right"></span>
+      </div>
+      <div class="item">
+        <span class="left need">确认密码：</span><input id="confirm" onblur="confirm()" onfocus="confirmFocus()" placeholder="请再次确认密码" type="password">
+        <span id="confirmError" class="right"></span>
+      </div>
+      <div class="item">
+        <span class="left">姓名：</span><input placeholder="请输入姓名" type="text">
+        <span class="right"></span>
+      </div>
+      <div class="item">
+        <span class="left">QQ：</span><input placeholder="请输入QQ" type="text">
+        <span class="right"></span>
+      </div>
+      <div class="item">
+        <span class="left">微信：</span><input placeholder="请输入微信" type="text">
+        <span class="right"></span>
+      </div>
+      <div class="item">
+        <span class="left">手机：</span><input placeholder="请输入手机号" type="text">
+        <span class="right"></span>
+      </div>
+      <div><input type="button" class="btn" value="提交"></div>
+      <!-- <div><button class="btn">修改</button></div> -->
     </div>
-    <div class="item">
-      <span class="need">密码：</span><input  placeholder="请输入用密码" type="password">
-    </div>
-    <div class="item">
-      <span class="need">确认密码：</span><input  placeholder="请再次确认密码" type="password">
-    </div>
-    <div class="item">
-      <span>姓名：</span><input  placeholder="请输入姓名" type="text">
-    </div>
-    <div class="item">
-      <span>QQ：</span><input  placeholder="请输入QQ" type="text">
-    </div>
-    <div class="item">
-      <span>微信：</span><input  placeholder="请输入微信" type="text">
-    </div>
-    <div class="item">
-      <span>手机：</span><input   placeholder="请输入手机号" type="text">
-    </div>
-    <div ><button class="btn">修改</button></div>
-  </div>
+  </form>
 
 
   <script>
-    let userInfo = {}
-    function userNameValid(e) {
-      if(e==='') {
-        alert('请输入用户名')
+    //  用户名相关
+    function userNameValid() {
+      var username = document.getElementById("username");
+      // var reN =/^\d{6,18}$/;
+      var re = /^[a-zA-Z_]{6,18}$/;
+      if (username.value == "") {
+        document.getElementById('usernameError').innerText = "请输入用户名";
       }
+      else if (username.value.length < 6 || username.value.length > 18) {
+        console.log(username.value);
+        document.getElementById('usernameError').innerText = "格式错误,长度应为6-18个字符";
+      }
+      else if (!re.test(username.value)) {
+
+        document.getElementById('usernameError').innerText = "格式错误,只能包含英文字母和下划线";
+      }
+      else {
+        document.getElementById('usernameError').innerText = "";
+      }
+    }
+    function usernameFocus() {
+      document.getElementById('usernameError').innerText = "";
+    }
+  
+    // 密码相相关
+    function passwordValid(){
+          var password=document.getElementById("password");
+          var re = /^(?=.*\d)(?=.*[a-zA-Z])[\da-zA-Z]{6,}$/;
+         // var reg=/[A-Za-z].*[0-9]|[0-9].*[A-Za-z]/;
+
+        if(password.value==""){
+        document.getElementById('passwordError').innerText="请输入密码";
+        }
+          else if(password.value.length < 6){
+             document.getElementById('passwordError').innerText="格式错误,,密码长度至少为6位";
+         }
+
+         else if(!re.test(password.value)){
+             document.getElementById('passwordError').innerText="格式错误,必须包含英文字母大小写和数字";
+        }
+         else {
+        document.getElementById('passwordError').innerText ="";
+        }
+}
+    function pdFocus(){
+        document.getElementById('passwordError').innerText ="";
+    }
+    // 确认密码
+    function confirm(){
+        var password=document.getElementById("password");
+        var confirmPassword=document.getElementById("confir");
+        if(confirmPassword.value==""){
+            document.getElementById('confirmError').innerText="请输入确认密码";
+        }
+        else if(password.value != confirmPassword.value){
+            document.getElementById('confirmError').innerText="两次密码输入不一致";
+        }
+        else {
+            document.getElementById('confirmError').innerText ="";
+        }
+    }
+    function QRMMonfocu(){
+        document.getElementById('confirmError').innerText ="";
     }
   </script>
 </body>
