@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>打字效果</title>
+</head>
+
+<style>
+  body {
+    background-color: #000;
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+  }
+  .line {
+    width: 674px;
+    height: 28px;
+    color: #fff;
+    border-right: 2px solid #eee;
+    font-size: 28px;
+    text-align: center;
+    white-space: normal;
+    overflow: hidden;
+  }
+  .animation {
+    animation: grow 4s steps(44) 1s normal both infinite,
+    blink 500ms steps(44) infinite normal;
+  }
+  @keyframes grow {
+    from {
+      width: 0;
+    }
+    to {
+      width: 674px;
+    }
+  }
+  @keyframes blink {
+    from {
+      border-right-color: #eee;
+    }
+    to {
+      border-right-color: transparent;
+    }
+  }
+</style>
+<body>
+  <p class="line animation">Exited</p>
+</body>
+</html>
